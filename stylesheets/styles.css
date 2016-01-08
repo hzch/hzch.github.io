@@ -241,7 +241,7 @@ hr {
 }
 
 footer {
-  width:100px;
+  width:270px;
   float:left;
   position:fixed;
   bottom:50px;
@@ -262,7 +262,7 @@ footer {
   }
 
   header {
-    padding-right:100px;
+    padding-right:320px;
   }
 
   section {

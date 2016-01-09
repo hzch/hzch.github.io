@@ -224,7 +224,7 @@ header ul a strong {
 }
 
 section {
-  width:780px;
+  width:740px;
   float:right;
   padding-bottom:50px;
 }
@@ -248,7 +248,7 @@ footer {
   -webkit-font-smoothing:subpixel-antialiased;
 }
 
-@media print, screen and (max-width: 960px) {
+@media print, screen and (max-width: 10000px) {
 
   div.wrapper {
     width:auto;

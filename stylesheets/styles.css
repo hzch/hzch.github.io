@@ -108,7 +108,7 @@ a:hover small {
 }
 
 .wrapper {
-  width:920px;
+  width:980px;
   margin:0 auto;
 }
 
@@ -158,7 +158,7 @@ img {
 }
 
 header {
-  width:200px;
+  width:160px;
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
@@ -224,7 +224,7 @@ header ul a strong {
 }
 
 section {
-  width:700px;
+  width:800px;
   float:right;
   padding-bottom:50px;
 }
@@ -241,14 +241,14 @@ hr {
 }
 
 footer {
-  width:200px;
+  width:160px;
   float:left;
   position:fixed;
   bottom:50px;
   -webkit-font-smoothing:subpixel-antialiased;
 }
 
-@media print, screen and (max-width: 960px) {
+@media print, screen and (max-width: 1000px) {
 
   div.wrapper {
     width:auto;

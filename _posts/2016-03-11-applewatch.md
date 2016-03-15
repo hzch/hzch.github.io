@@ -6,6 +6,7 @@ date:   2016-03-11 12:00:00 +0800
 ---
 
 2015年4月10日Apple Watch（以下简称watch）开启预售，24日开始正式上市。笔者2015年3月开始研究watch，由于没有真机，所有前期调研和开发都是在模拟器中完成。经验少，如果发现有什么问题，欢迎指出。
+
 >**PS：**屌丝猿现在都还没有一台Apple Watch。
 
 ##Apple Watch
@@ -83,7 +84,8 @@ watch屏幕太小，基本上不支持手势。个人认为屏幕小不是关键
 
 ###通信
 
-![Alt text](./1454567475779.png)
+![Alt text]({{ site.url }}/photo/1454567475779.png)
+
 一个完整运行的watch应用可以分为三个部分： watch app、watch extension、iPhone app。
 
 **watch app：**运行在手表中，其他两个运行在手机中。watch app由于电量和计算能力问题，只负责UI的显示。而数据则由extension来提供。
@@ -98,7 +100,7 @@ extension 与iphone这边，两个分别属于不同的进程，这两个间的�
 
 ####watch app与Extension的通信
 
-![Alt text](./1454567509687.png)
+![Alt text]({{ site.url }}/photo/1454567509687.png)
 
 这部分的通信，苹果已经帮我们做好了，我们只需要按苹果的推荐的方式进行数据传输就可以了。
 
@@ -125,7 +127,7 @@ iphone端需要向watch传递消息时，可以向数据共享区写入数据，
 **DarwinNotification：**这是一个CoreFoundation层的通知。它是系统级的，可以向外广播通知，但是约束比较多，比如通知不能带任何附加消息，只能发出一个name。
 所以，DarwinNotification使用时，还是需要结合App Group，iphone app 可以把数据写到App Group ，然后通过Darwin通知watch。watch收到通知，就可以主动将数据取出。
 
-![Alt text](./1454567538067.png)
+![Alt text]({{ site.url }}/photo/1454567538067.png)
 
 这就是一套相对完整的通信机制了。不过这套方案其实还存在一些问题，我们也在不断的改进当中。比如目前iphone端是无法知道watch是否正在运行。
 也就是说，iphone一旦有数据改动，不管watch是否开启，都会向外发出通知。
@@ -134,8 +136,10 @@ iphone端需要向watch传递消息时，可以向数据共享区写入数据，
 ##watchOS 2
 `watchOS 2`最大的改变就是可以构建专属手表的独立app了。
 >只是说`watch app`在远离手机端时仍然可以使用，每个watch app还是需要一个iOS app的。
-![Alt text](./1454567538068.png)
-![Alt text](./1454567538069.png)
+
+![Alt text]({{ site.url }}/photo/1454567538068.png)
+
+![Alt text]({{ site.url }}/photo/1454567538069.png)
 
 从上面的图中，可以很明显地看出，苹果把原来运行在 iPhone 手机上的 `WatchKit Extension` 移到` Apple Watch` 中了。这样做最直接的影响就是，watchOS 2的通信需要重新实现了。幸好苹果提供了一套完整的API，
 

@@ -32,9 +32,11 @@ Xcode用了3年，从Xcode4到Xcode7，一直没有尝试过自己写插件，�
 - `Principal class`：主类名，告诉Xcode要用哪个类，该类需要自己创建。
 - `XCPluginHasUI`：NO，没有UI。
 - `XC4Compatible`：YES，适配Xcode4。
+
 > 不明白为什么必须是XC4，笔者改为XC5Compatible、XC7Compatible，都不行。
 
 - `DVTPlugInCompatibilityUUIDs`：支持的Xcode列表。
+
 > 在 Xcode 5 中， Apple 为了防止过期插件导致的在 Xcode 升级后 IDE 的崩溃，添加了一个 UUID 的检查机制。只有包含声明了适配 UUID，才能够被 Xcode 正确加载。UUID可以在Xcode.app的Info.plist中看，命令行：`defaults read /Applications/Xcode.app/Contents/Info DVTPlugInCompatibilityUUID`。
 
 ### 3. 更改bundle生成目录  
@@ -44,14 +46,18 @@ Xcode用了3年，从Xcode4到Xcode7，一直没有尝试过自己写插件，�
 ![Alt text]({{ site.url }}/photo/1459492604664.png)
 
 修改工程文件的`Build Setting`：
+
 - `Installation Build Products Location`     设置为`$({HOME}`
 - `Installation Directory` 设置为`/Library/Application Support/Developer/Shared/Xcode/Plug-ins`
+
 > 以上两个设置目录，第二个是第一个的相对地址，也可以把第一个设置为空，第二个设置为$({HOME}/Library/Application Support/Developer/Shared/Xcode/Plug-ins
 
 - `Deployment Location` 设置为 `YES`
+
 > 告诉Xcode不要用设置里的build location，而是用Installation Directory来确定build后放哪儿。
 
 - `Skip Install` 设置为`NO`
+
 > 顾名思义，默认为YES，会跳过安装，bundle会放在另外的地方。
 
 ### 4. 新建主类  
